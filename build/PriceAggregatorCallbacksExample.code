@@ -34,13 +34,13 @@ PUSHCONT {
 IFELSE
 ENDS
 GETGLOB 9
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 63
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 62
 PUSHINT 1000000000
 PUSHINT 0
 RAWRESERVE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 64
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 63
 ACCEPT
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 67
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 66
 OVER
 ISNULL
 PUSHCONT {
@@ -54,7 +54,7 @@ PUSHCONT {
 	THROWIF 63
 }
 IFELSE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 70
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 69
 DUP
 PARSEMSGADDR
 INDEX 3
@@ -65,13 +65,13 @@ MYADDR
 SDEQ
 OR
 PUSHCONT {
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 71
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 70
 	OVER
 	NIP
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 }
 IF
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 77
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 76
 NEWC
 STSLICECONST x42_
 STSLICE
@@ -82,7 +82,7 @@ PUSHPOW2 7
 ADDCONST 2
 UFITS 8
 SENDRAWMSG
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 DROP2
 CALLREF {
 	CALL $c7_to_c4$
@@ -98,7 +98,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 27
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 27
 OVER
 PUSHCONT {
 	LDDICT
@@ -117,7 +117,7 @@ IFELSE
 LDMSGADDR
 LDREF
 ENDS
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 CALLREF {
 	CALL $onSuccessPriceCallback_55912cd6_internal_macro$
 }
@@ -127,13 +127,13 @@ CALLREF {
 THROW 0
 
 .macro onSuccessPriceCallback_55912cd6_internal_macro
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 27
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 27
 PUSH2 S1, S1
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 34
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 33
 PUSHINT 1000000000
 PUSHINT 0
 RAWRESERVE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 37
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 36
 OVER
 ISNULL
 PUSHCONT {
@@ -147,7 +147,7 @@ PUSHCONT {
 	THROWIF 63
 }
 IFELSE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 40
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 39
 DUP
 PARSEMSGADDR
 INDEX 3
@@ -158,15 +158,15 @@ MYADDR
 SDEQ
 OR
 PUSHCONT {
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 41
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 40
 	OVER
 	NIP
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 }
 IF
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 44
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 43
 BLKSWAP 5, 3
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 38
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 38
 DROP
 ROLL 3
 DUP
@@ -188,7 +188,7 @@ PUSHCONT {
 	NOT
 }
 PUSHCONT {
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 39
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 39
 	TUPLE 0
 	NEWC
 	PUSHSLICE x50726963652f5363616c653a20
@@ -241,7 +241,7 @@ PUSHCONT {
 	CALLREF {
 		CALL $console_no_obj_log_41304fac_macro$
 	}
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 	PUSH2 S1, S2
 	PUSHINT 267
 	DICTGETNEXT
@@ -259,7 +259,7 @@ PUSHCONT {
 }
 WHILE
 BLKDROP 4
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 42
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 42
 TUPLE 0
 NEWC
 PUSHSLICE x54696d657374616d703a20
@@ -278,7 +278,7 @@ CALLREF {
 CALLREF {
 	CALL $console_no_obj_log_41304fac_macro$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 43
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 43
 TUPLE 0
 NEWC
 PUSHSLICE x53656e6465723a20
@@ -295,9 +295,9 @@ CALLREF {
 CALLREF {
 	CALL $console_no_obj_log_41304fac_macro$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 DROP
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 47
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 46
 NEWC
 STSLICECONST x42_
 STSLICE
@@ -308,9 +308,9 @@ PUSHPOW2 7
 ADDCONST 2
 UFITS 8
 SENDRAWMSG
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 DROP2
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 
 .macro onCanceledPriceCallback
 DROP
@@ -321,7 +321,7 @@ ISNULL
 IFREF {
 	CALL $c4_to_c7$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 46
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 46
 OVER
 PUSHCONT {
 	LDDICT
@@ -350,7 +350,7 @@ IFELSE
 LDMSGADDR
 LDREF
 ENDS
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 CALLREF {
 	CALL $onCanceledPriceCallback_740ea949_internal_macro$
 }
@@ -360,13 +360,13 @@ CALLREF {
 THROW 0
 
 .macro onCanceledPriceCallback_740ea949_internal_macro
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 46
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 46
 PUSH2 S1, S1
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 34
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 33
 PUSHINT 1000000000
 PUSHINT 0
 RAWRESERVE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 37
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 36
 OVER
 ISNULL
 PUSHCONT {
@@ -380,7 +380,7 @@ PUSHCONT {
 	THROWIF 63
 }
 IFELSE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 40
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 39
 DUP
 PARSEMSGADDR
 INDEX 3
@@ -391,15 +391,15 @@ MYADDR
 SDEQ
 OR
 PUSHCONT {
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 41
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 40
 	OVER
 	NIP
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 }
 IF
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 44
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 43
 BLKSWAP 6, 3
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 58
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 58
 DROP
 ROLL 4
 DUP
@@ -421,7 +421,7 @@ PUSHCONT {
 	NOT
 }
 PUSHCONT {
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 59
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 59
 	TUPLE 0
 	NEWC
 	PUSHSLICE x50726963652f5363616c653a20
@@ -474,7 +474,7 @@ PUSHCONT {
 	CALLREF {
 		CALL $console_no_obj_log_41304fac_macro$
 	}
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 	PUSH2 S1, S2
 	PUSHINT 267
 	DICTGETNEXT
@@ -492,7 +492,7 @@ PUSHCONT {
 }
 WHILE
 BLKDROP 4
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 62
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 62
 ROT
 SECOND
 PUSHINT 0
@@ -509,7 +509,7 @@ PUSHCONT {
 	NOT
 }
 PUSHCONT {
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 63
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 63
 	TUPLE 0
 	NEWC
 	PUSHSLICE x4661696c65643a20
@@ -526,14 +526,14 @@ PUSHCONT {
 	CALLREF {
 		CALL $console_no_obj_log_41304fac_macro$
 	}
-	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+	.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 	OVER
 	INC
 	POP S2
 }
 WHILE
 BLKDROP 3
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 66
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 66
 TUPLE 0
 NEWC
 PUSHSLICE x54696d657374616d703a20
@@ -552,7 +552,7 @@ CALLREF {
 CALLREF {
 	CALL $console_no_obj_log_41304fac_macro$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 67
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 67
 TUPLE 0
 NEWC
 PUSHSLICE x53656e6465723a20
@@ -569,9 +569,9 @@ CALLREF {
 CALLREF {
 	CALL $console_no_obj_log_41304fac_macro$
 }
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 DROP
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 47
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 46
 NEWC
 STSLICECONST x42_
 STSLICE
@@ -582,9 +582,9 @@ PUSHPOW2 7
 ADDCONST 2
 UFITS 8
 SENDRAWMSG
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 DROP2
-.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.sol, 0
+.loc ../examples/contracts/prices/PriceAggregatorCallbacksExample.tsol, 0
 
 .macro c4_to_c7
 PUSHROOT
@@ -757,7 +757,7 @@ THROW 60
 CALL $console_with_obj_log_41304fac_macro$
 
 .macro console_with_obj_log_41304fac_macro
-.loc ../node_modules/locklift/src/console.sol, 10
+.loc ../node_modules/locklift/src/console.tsol, 10
 DUP
 PUSHREFSLICE {
 	.blob xc600fffffffffffffffffffffffffffffffffffffffffffffffffe2468acf13579bc0000000000000000000000000903f4294_
@@ -768,14 +768,14 @@ STREF
 ENDC
 PUSHINT 0
 SENDRAWMSG
-.loc ../node_modules/locklift/src/console.sol, 0
+.loc ../node_modules/locklift/src/console.tsol, 0
 
 .globl	console_no_obj_log_41304fac
 .type	console_no_obj_log_41304fac, @function
 CALL $console_no_obj_log_41304fac_macro$
 
 .macro console_no_obj_log_41304fac_macro
-.loc ../node_modules/locklift/src/console.sol, 10
+.loc ../node_modules/locklift/src/console.tsol, 10
 PUSHREFSLICE {
 	.blob xc600fffffffffffffffffffffffffffffffffffffffffffffffffe2468acf13579bc0000000000000000000000000903f4294_
 }
@@ -785,7 +785,7 @@ STREF
 ENDC
 PUSHINT 0
 SENDRAWMSG
-.loc ../node_modules/locklift/src/console.sol, 0
+.loc ../node_modules/locklift/src/console.tsol, 0
 
 .macro public_function_selector
 DUP

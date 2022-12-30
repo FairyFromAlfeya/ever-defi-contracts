@@ -4,13 +4,13 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "locklift/src/console.sol";
+import "locklift/src/console.tsol";
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/tip3/interfaces/IAcceptTokensTransferCallback.sol";
-import "../../../contracts/tip3/interfaces/ITokenRoot.sol";
+import "../../../contracts/tip3/interfaces/IAcceptTokensTransferCallback.tsol";
+import "../../../contracts/tip3/interfaces/ITokenRoot.tsol";
 
 contract AcceptTokensTransferCallbackExample is
     IAcceptTokensTransferCallback,
@@ -38,7 +38,7 @@ contract AcceptTokensTransferCallbackExample is
         ITokenRoot(_root)
             .walletOf{
                 value: 0.5 ever,
-                flag: UtilityFlag.SENDER_PAYS_FEES,
+                flag: MsgFlag.SENDER_PAYS_FEES,
                 bounce: false,
                 callback: AcceptTokensTransferCallbackExample.onWalletOf
             }(address(this));

@@ -4,15 +4,15 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "locklift/src/console.sol";
+import "locklift/src/console.tsol";
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/prices/oracle/interfaces/IOnObservationCallback.sol";
-import "../../../contracts/prices/oracle/interfaces/IOnRateCallback.sol";
-import "../../../contracts/prices/oracle/interfaces/ITWAPOracle.sol";
+import "../../../contracts/prices/oracle/interfaces/IOnObservationCallback.tsol";
+import "../../../contracts/prices/oracle/interfaces/IOnRateCallback.tsol";
+import "../../../contracts/prices/oracle/interfaces/ITWAPOracle.tsol";
 
 contract TWAPOracleCallbacksExample is
     IOnRateCallback,
@@ -81,7 +81,7 @@ contract TWAPOracleCallbacksExample is
         _oracle
             .rate{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _fromTimestamp,
@@ -104,7 +104,7 @@ contract TWAPOracleCallbacksExample is
         _oracle
             .observation{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _timestamp,

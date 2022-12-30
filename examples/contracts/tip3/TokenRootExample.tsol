@@ -4,13 +4,13 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "locklift/src/console.sol";
+import "locklift/src/console.tsol";
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/tip3/interfaces/ITokenRoot.sol";
+import "../../../contracts/tip3/interfaces/ITokenRoot.tsol";
 
 contract TokenRootExample is Reservable {
     uint32 private static _nonce;
@@ -33,7 +33,7 @@ contract TokenRootExample is Reservable {
         _root
             .name{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onName
             }();
@@ -47,7 +47,7 @@ contract TokenRootExample is Reservable {
         _root
             .symbol{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onSymbol
             }();
@@ -61,7 +61,7 @@ contract TokenRootExample is Reservable {
         _root
             .decimals{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onDecimals
             }();
@@ -75,7 +75,7 @@ contract TokenRootExample is Reservable {
         _root
             .totalSupply{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onTotalSupply
             }();
@@ -89,7 +89,7 @@ contract TokenRootExample is Reservable {
         _root
             .rootOwner{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onRootOwner
             }();
@@ -103,7 +103,7 @@ contract TokenRootExample is Reservable {
         _root
             .walletOf{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onWalletOf
             }(_owner);
@@ -120,7 +120,7 @@ contract TokenRootExample is Reservable {
         _root
             .deployWallet{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenRootExample.onDeployWallet
             }(_owner, _deployWalletValue);

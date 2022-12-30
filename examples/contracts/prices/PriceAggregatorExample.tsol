@@ -4,15 +4,15 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "locklift/src/console.sol";
+import "locklift/src/console.tsol";
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/prices/aggregator/interfaces/IPriceAggregatorInstance.sol";
-import "../../../contracts/prices/aggregator/interfaces/IOnCanceledPriceCallback.sol";
-import "../../../contracts/prices/aggregator/interfaces/IOnSuccessPriceCallback.sol";
+import "../../../contracts/prices/aggregator/interfaces/IPriceAggregatorInstance.tsol";
+import "../../../contracts/prices/aggregator/interfaces/IOnCanceledPriceCallback.tsol";
+import "../../../contracts/prices/aggregator/interfaces/IOnSuccessPriceCallback.tsol";
 
 contract PriceAggregatorExample is
     IPriceAggregatorInstance,
@@ -72,7 +72,7 @@ contract PriceAggregatorExample is
             IOnSuccessPriceCallback(_callbackRecipient)
                 .onSuccessPriceCallback{
                     value: 0,
-                    flag: UtilityFlag.ALL_NOT_RESERVED,
+                    flag: MsgFlag.ALL_NOT_RESERVED,
                     bounce: false
                 }(
                     prices,
@@ -85,7 +85,7 @@ contract PriceAggregatorExample is
             IOnCanceledPriceCallback(_callbackRecipient)
                 .onCanceledPriceCallback{
                     value: 0,
-                    flag: UtilityFlag.ALL_NOT_RESERVED,
+                    flag: MsgFlag.ALL_NOT_RESERVED,
                     bounce: false
                 }(
                     prices,

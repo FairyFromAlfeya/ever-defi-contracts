@@ -1,6 +1,6 @@
 pragma ever-solidity >= 0.63.0;
 
-import "../structures/IRate.sol";
+import "../structures/IRate.tsol";
 
 /// @author Alexander Kunekov
 /// @title OnRate-callback Interface

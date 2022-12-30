@@ -4,14 +4,14 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/FixedPoint128.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/libraries/FixedPoint128.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/prices/oracle/interfaces/ITWAPOracle.sol";
-import "../../../contracts/prices/oracle/interfaces/IOnObservationCallback.sol";
-import "../../../contracts/prices/oracle/interfaces/IOnRateCallback.sol";
+import "../../../contracts/prices/oracle/interfaces/ITWAPOracle.tsol";
+import "../../../contracts/prices/oracle/interfaces/IOnObservationCallback.tsol";
+import "../../../contracts/prices/oracle/interfaces/IOnRateCallback.tsol";
 
 contract PriceAggregatorExample is
     ITWAPOracle,
@@ -56,7 +56,7 @@ contract PriceAggregatorExample is
     {
         return {
             value: 0,
-            flag: UtilityFlag.REMAINING_GAS,
+            flag: MsgFlag.REMAINING_GAS,
             bounce: false
         } _observations.fetch(_timestamp);
     }
@@ -73,7 +73,7 @@ contract PriceAggregatorExample is
         IOnObservationCallback(msg.sender)
             .onObservationCallback{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _observations.fetch(_timestamp),
@@ -99,7 +99,7 @@ contract PriceAggregatorExample is
 
         return {
             value: 0,
-            flag: UtilityFlag.REMAINING_GAS,
+            flag: MsgFlag.REMAINING_GAS,
             bounce: false
         } (rateOpt, reserves);
     }
@@ -120,7 +120,7 @@ contract PriceAggregatorExample is
         IOnRateCallback(_callbackTo)
             .onRateCallback{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _calculateRate(_fromTimestamp, _toTimestamp),
@@ -144,7 +144,7 @@ contract PriceAggregatorExample is
         return {
             value: 0,
             bounce: false,
-            flag: UtilityFlag.REMAINING_GAS
+            flag: MsgFlag.REMAINING_GAS
         } FixedPoint128.calculateExpectedAmountByRate(
             _amount,
             _calculateRate(_fromTimestamp, _toTimestamp).get().price0To1
@@ -173,7 +173,7 @@ contract PriceAggregatorExample is
     {
         return {
             value: 0,
-            flag: UtilityFlag.REMAINING_GAS,
+            flag: MsgFlag.REMAINING_GAS,
             bounce: false
         } _options;
     }

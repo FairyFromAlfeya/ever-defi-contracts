@@ -1,8 +1,8 @@
 pragma ever-solidity >= 0.63.0;
 
-import "../structures/IRate.sol";
+import "../structures/IRate.tsol";
 
-import "./IOracle.sol";
+import "./IOracle.tsol";
 
 /// @author Alexander Kunekov
 /// @title TWAP-Oracle Interface

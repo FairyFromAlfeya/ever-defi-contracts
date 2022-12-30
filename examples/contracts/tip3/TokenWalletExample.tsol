@@ -4,14 +4,14 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "locklift/src/console.sol";
+import "locklift/src/console.tsol";
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
 
-import "../../../contracts/tip3/interfaces/ITokenWallet.sol";
-import "../../../contracts/tip3/interfaces/ITokenRoot.sol";
+import "../../../contracts/tip3/interfaces/ITokenWallet.tsol";
+import "../../../contracts/tip3/interfaces/ITokenRoot.tsol";
 
 contract TokenWalletExample is Reservable {
     uint32 private static _nonce;
@@ -29,7 +29,7 @@ contract TokenWalletExample is Reservable {
         _wallet
             .root{
                 value: 0.5 ever,
-                flag: UtilityFlag.SENDER_PAYS_FEES,
+                flag: MsgFlag.SENDER_PAYS_FEES,
                 bounce: false,
                 callback: TokenWalletExample.onOwnRoot
             }();
@@ -43,7 +43,7 @@ contract TokenWalletExample is Reservable {
         ITokenRoot(_root)
             .walletOf{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenWalletExample.onOwnWalletOf
             }(address(this));
@@ -64,7 +64,7 @@ contract TokenWalletExample is Reservable {
         _wallet
             .root{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenWalletExample.onRoot
             }();
@@ -78,7 +78,7 @@ contract TokenWalletExample is Reservable {
         _wallet
             .balance{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenWalletExample.onBalance
             }();
@@ -92,7 +92,7 @@ contract TokenWalletExample is Reservable {
         _wallet
             .owner{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false,
                 callback: TokenWalletExample.onOwner
             }();
@@ -113,7 +113,7 @@ contract TokenWalletExample is Reservable {
         _ownWallet
             .transfer{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _amount,
@@ -139,7 +139,7 @@ contract TokenWalletExample is Reservable {
         _ownWallet
             .transferToWallet{
                 value: 0,
-                flag: UtilityFlag.ALL_NOT_RESERVED,
+                flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _amount,

@@ -1,6 +1,6 @@
 pragma ever-solidity >= 0.63.0;
 
-import "../structures/IObservation.sol";
+import "../structures/IObservation.tsol";
 
 /// @author Alexander Kunekov
 /// @title OnObservation-callback Interface

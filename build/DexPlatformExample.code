@@ -34,13 +34,13 @@ PUSHCONT {
 IFELSE
 ENDS
 GETGLOB 9
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 63
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 62
 PUSHINT 1000000000
 PUSHINT 0
 RAWRESERVE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 64
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 63
 ACCEPT
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 67
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 66
 OVER
 ISNULL
 PUSHCONT {
@@ -54,7 +54,7 @@ PUSHCONT {
 	THROWIF 63
 }
 IFELSE
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 70
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 69
 DUP
 PARSEMSGADDR
 INDEX 3
@@ -65,13 +65,13 @@ MYADDR
 SDEQ
 OR
 PUSHCONT {
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 71
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 70
 	OVER
 	NIP
-	.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+	.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 }
 IF
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 77
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 76
 NEWC
 STSLICECONST x42_
 STSLICE
@@ -82,7 +82,7 @@ PUSHPOW2 7
 ADDCONST 2
 UFITS 8
 SENDRAWMSG
-.loc ../node_modules/@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol, 0
+.loc ../node_modules/@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol, 0
 DROP2
 CALLREF {
 	CALL $c7_to_c4$
@@ -93,7 +93,7 @@ THROW 0
 DROP
 GETGLOB 6
 THROWIFNOT 76
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 23
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 23
 LDU 32
 GETGLOB 4
 ROT
@@ -120,7 +120,7 @@ ENDS
 CTOS
 LDMSGADDR
 ENDS
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 0
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 0
 CALLREF {
 	CALL $getPairAddress_82036237_internal_macro$
 }
@@ -183,13 +183,13 @@ IFREF {
 THROW 0
 
 .macro getPairAddress_82036237_internal_macro
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 36
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 36
 SWAP
 NEWC
 STSLICE
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 37
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 37
 STSLICE
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 43
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 43
 GETGLOB 4
 PUSHINT 0
 SETINDEXQ 2
@@ -238,7 +238,7 @@ STSLICECONST x801_
 STU 256
 ENDC
 CTOS
-.loc ../examples/contracts/dex/DexPlatformExample.sol, 0
+.loc ../examples/contracts/dex/DexPlatformExample.tsol, 0
 
 .macro c4_to_c7
 PUSHROOT

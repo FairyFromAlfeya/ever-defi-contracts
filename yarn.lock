@@ -28,6 +28,10 @@
   resolved "https://registry.yarnpkg.com/@broxus/await-semaphore/-/await-semaphore-0.1.5.tgz#e5fcf641dfa71ffc29210b1138e2157a32b422d9"
   integrity sha512-g464HtHHKxk6r6bkZc+lET1PuSgcFxlLHVb7EAqfxTlx6DRcYkjPRIQQhRHB3BQ6zRpfMrYkppL0tBtRED+HNA==
 
+"@broxus/ever-contracts@git://github.com/broxus/ever-contracts#ed925b6":
+  version "1.1.1"
+  resolved "git://github.com/broxus/ever-contracts#ed925b692a12cf36311e602bda18d81ff243927a"
+
 "@commitlint/cli@17.0.2":
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/@commitlint/cli/-/cli-17.0.2.tgz#57c925fb5f09b8e4a83448d94db291ddf7aa58ee"
@@ -204,11 +208,6 @@
     js-yaml "^4.1.0"
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
-
-"@fairyfromalfeya/ever-solidity-utils@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@fairyfromalfeya/ever-solidity-utils/-/ever-solidity-utils-2.0.0.tgz#dd4b5279aad8ffa7597d9d4e39d8a62362963aa1"
-  integrity sha512-h45z7vpaMlyayakPfDYWZ6u02Vj/d1LuXsf1cwdEl4rh27/t4pQeUy0P3eaC/qzshuSmOtL6UgArsBy81iqK9A==
 
 "@humanwhocodes/config-array@^0.9.2":
   version "0.9.5"
@@ -1089,22 +1088,22 @@ everscale-crypto@^0.1.1:
   resolved "https://registry.yarnpkg.com/everscale-crypto/-/everscale-crypto-0.1.1.tgz#7e354f122b2673036d40cd6aebf44630b0392f34"
   integrity sha512-DoocTqkz1cayTu4UDdP7dUEcDMfCqchNNKhIgsXQAqhlwRExsNQ1Omo2C/JiuQ3rMzr3XxvqrCwLeLTiOrbXYQ==
 
-everscale-inpage-provider@^0.3.41, everscale-inpage-provider@^0.3.43:
-  version "0.3.43"
-  resolved "https://registry.yarnpkg.com/everscale-inpage-provider/-/everscale-inpage-provider-0.3.43.tgz#2f2c533a9b44237893b3f6f747b5b1c61e1523ee"
-  integrity sha512-AFqo6RAurwpnz7UvHu2O/3BK8nHElBQ7vfvUaDOJB8zzcd28pD26TflZbYRWzgoP7RNOM69h3WcmiWtlHl8pVw==
+everscale-inpage-provider@^0.3.45, everscale-inpage-provider@^0.3.47:
+  version "0.3.47"
+  resolved "https://registry.yarnpkg.com/everscale-inpage-provider/-/everscale-inpage-provider-0.3.47.tgz#948a92db6778338aa96884a0e04a5982638b716e"
+  integrity sha512-58AbzjFD1dCTroH5H8QiCRt0qqtgBFNlKXcm0leog8NrSmCr8pVoiWuF70hUsgtAry1prhd6OLmADdLsCpdNaw==
 
-everscale-standalone-client@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/everscale-standalone-client/-/everscale-standalone-client-2.1.1.tgz#ec59edeef197ab3b61c9bc9fee8a6210afc49670"
-  integrity sha512-4OqHWLPZ7lqJ10m9Uu0vMsYa/oEXx+8fw9IRdKRpEmer5a7bzQFc14baCtFVot23pP2k7prGJ6kLeuZCL+CxMg==
+everscale-standalone-client@^2.1.5:
+  version "2.1.8"
+  resolved "https://registry.yarnpkg.com/everscale-standalone-client/-/everscale-standalone-client-2.1.8.tgz#e47fa5685c8b91b7e533565b0ba9b7c5a06d3cbc"
+  integrity sha512-NIH9EM1riNSx574cIXAiisvM1RphGnBIJ9LGmGqqcUE8IHZtVdcKGLmVYojtcQcw3UqWL6OXvf6fwCUEQ67voQ==
   dependencies:
     "@broxus/await-semaphore" "^0.1.5"
     bignumber.js "^9.1.0"
     events "^3.3.0"
-    everscale-inpage-provider "^0.3.41"
+    everscale-inpage-provider "^0.3.47"
     fast-safe-stringify "^2.1.1"
-    nekoton-wasm "^1.0.5"
+    nekoton-wasm "^1.0.11"
     node-fetch "^2.6.7"
 
 execa@^5.0.0:
@@ -1638,10 +1637,10 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
-locklift@2.4.4:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/locklift/-/locklift-2.4.4.tgz#758beb3416e96ff217b8f04a438ea0f8cf68acbb"
-  integrity sha512-G6mUkgEq/2/RJ5Lr0/WP/E+pSGTYnh8/TyKKt8p1d8xyL3F5zIN/9nSD4IEOXj4biKzZWVyOGtxyW2253S6gHA==
+locklift@2.4.6:
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/locklift/-/locklift-2.4.6.tgz#e3fd856834a5bbb813001bd6e964012c9d442ffa"
+  integrity sha512-1x9PP6JIl2rfB+E+iI7QL0ZhTrm1N3l96KWjoC128zGVbRNWkecXaYHTxPxV1w9mQ8kEMidZq0w2GFS5iUD3WA==
   dependencies:
     "@types/yargs" "^17.0.13"
     axios "^0.27.2"
@@ -1652,8 +1651,8 @@ locklift@2.4.4:
     ejs "^3.1.6"
     env-paths "^2.2.1"
     everscale-crypto "^0.1.1"
-    everscale-inpage-provider "^0.3.43"
-    everscale-standalone-client "^2.1.1"
+    everscale-inpage-provider "^0.3.45"
+    everscale-standalone-client "^2.1.5"
     fs-extra "^10.1.0"
     lodash "^4.17.21"
     mocha "^10.0.0"
@@ -1871,10 +1870,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-nekoton-wasm@^1.0.5:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/nekoton-wasm/-/nekoton-wasm-1.0.9.tgz#af807674b5326c589b95a79703ba38a1288bab04"
-  integrity sha512-OIr6p080TjYYfnW6YOca8dHuX96DoC/oyftE+3IpW8GMN0aEEAQ5xLm5t8Vz4ntJpthU6JcboR7dqFUroPT4Kw==
+nekoton-wasm@^1.0.11:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/nekoton-wasm/-/nekoton-wasm-1.0.12.tgz#593eaf70fd755431fd55c985b49ecd5a97f4a839"
+  integrity sha512-bp5AgVH7JZ24/kojP6BMfShVj5nPoV7s6t+zJKt+6ZkpQ5PaKoTySFNli752KJabk3IImfgRz7nslFD8mQCyYQ==
 
 no-case@^2.2.0:
   version "2.3.2"

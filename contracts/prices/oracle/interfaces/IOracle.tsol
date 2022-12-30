@@ -1,8 +1,8 @@
 pragma ever-solidity >= 0.63.0;
 
-import "../structures/IObservation.sol";
-import "../structures/IOracleOptions.sol";
-import "../structures/IPoint.sol";
+import "../structures/IObservation.tsol";
+import "../structures/IOracleOptions.tsol";
+import "../structures/IPoint.tsol";
 
 /// @author Alexander Kunekov
 /// @title Oracle Interface

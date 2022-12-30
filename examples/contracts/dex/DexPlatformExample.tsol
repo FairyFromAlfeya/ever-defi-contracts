@@ -4,13 +4,13 @@ pragma AbiHeader time;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityFlag.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/libraries/UtilityGas.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/reservation/abstract/Reservable.sol";
-import "@fairyfromalfeya/ever-solidity-utils/contracts/validation/abstract/Validatable.sol";
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
+import "@broxus/ever-contracts/contracts/validation/abstract/Validatable.tsol";
 
-import "../../../contracts/dex/libraries/DexPlatformTypes.sol";
-import "../../../contracts/dex/DexPlatformMinimized.sol";
+import "../../../contracts/dex/libraries/DexPlatformTypes.tsol";
+import "../../../contracts/dex/DexPlatformMinimized.tsol";
 
 contract DexPlatformExample is Reservable, Validatable {
     uint32 private static _nonce;
@@ -38,7 +38,7 @@ contract DexPlatformExample is Reservable, Validatable {
 
         return {
             value: 0,
-            flag: UtilityFlag.REMAINING_GAS,
+            flag: MsgFlag.REMAINING_GAS,
             bounce: false
         } address(
             tvm.hash(
