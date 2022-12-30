@@ -27,11 +27,19 @@
 			"inputs": [
 				{"name":"_tokens","type":"address[]"},
 				{"name":"_callbackRecipient","type":"address"},
-				{"name":"_proxy","type":"bool"},
 				{"name":"_remainingGasTo","type":"address"},
 				{"name":"_payload","type":"cell"}
 			],
 			"outputs": [
+			]
+		},
+		{
+			"name": "getTargetBalance",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"value0","type":"uint128"}
 			]
 		}
 	],
