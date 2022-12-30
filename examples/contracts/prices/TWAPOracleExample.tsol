@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.63.0;
+pragma ever-solidity >= 0.61.2;
 
 pragma AbiHeader time;
 pragma AbiHeader expire;
@@ -8,6 +8,7 @@ import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
 import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
 import "@broxus/ever-contracts/contracts/libraries/FixedPoint128.tsol";
 import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/TargetBalance.tsol";
 
 import "../../../contracts/prices/oracle/interfaces/ITWAPOracle.tsol";
 import "../../../contracts/prices/oracle/interfaces/IOnObservationCallback.tsol";
@@ -15,16 +16,26 @@ import "../../../contracts/prices/oracle/interfaces/IOnRateCallback.tsol";
 
 contract PriceAggregatorExample is
     ITWAPOracle,
-    Reservable
+    Reservable,
+    TargetBalance
 {
     uint32 private static _nonce;
 
     OracleOptions private _options;
     mapping(uint32 => Observation) private _observations;
 
+    function _getTargetBalanceInternal()
+        internal
+        view
+        override
+        returns (uint128)
+    {
+        return UtilityGas.INITIAL_BALANCE;
+    }
+
     constructor(optional(address) _remainingGasTo)
         public
-        reserveAcceptAndRefund(UtilityGas.INITIAL_BALANCE, _remainingGasTo, msg.sender)
+        reserveAcceptAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
     {
         Observation observation = Observation({
             timestamp: now,
@@ -40,7 +51,7 @@ contract PriceAggregatorExample is
         optional(address) _remainingGasTo
     )
         external
-        reserveAndRefund(UtilityGas.INITIAL_BALANCE, _remainingGasTo, msg.sender)
+        reserveAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
     {
         _observations[_observation.timestamp] = _observation;
 
@@ -63,20 +74,22 @@ contract PriceAggregatorExample is
 
     function observation(
         uint32 _timestamp,
+        address _callbackTo,
         TvmCell _payload
     )
         external
         view
         override
-        reserve(UtilityGas.INITIAL_BALANCE)
+        reserve(_getTargetBalanceInternal())
     {
-        IOnObservationCallback(msg.sender)
+        IOnObservationCallback(_callbackTo)
             .onObservationCallback{
                 value: 0,
                 flag: MsgFlag.ALL_NOT_RESERVED,
                 bounce: false
             }(
                 _observations.fetch(_timestamp),
+                msg.sender,
                 _payload
             );
     }
@@ -113,7 +126,7 @@ contract PriceAggregatorExample is
         external
         view
         override
-        reserve(UtilityGas.INITIAL_BALANCE)
+        reserve(_getTargetBalanceInternal())
     {
         uint128[] reserves;
 
@@ -125,6 +138,7 @@ contract PriceAggregatorExample is
             }(
                 _calculateRate(_fromTimestamp, _toTimestamp),
                 reserves,
+                msg.sender,
                 _payload
             );
     }
@@ -157,7 +171,7 @@ contract PriceAggregatorExample is
     )
         external
         override
-        reserveAndRefund(UtilityGas.INITIAL_BALANCE, _remainingGasTo, _remainingGasTo)
+        reserveAndRefund(_getTargetBalanceInternal(), _remainingGasTo, _remainingGasTo)
     {
         _options = _newOptions;
 
@@ -184,7 +198,7 @@ contract PriceAggregatorExample is
     )
         external
         override
-        reserveAndRefund(UtilityGas.INITIAL_BALANCE, _remainingGasTo, _remainingGasTo)
+        reserveAndRefund(_getTargetBalanceInternal(), _remainingGasTo, _remainingGasTo)
     {
         for (uint16 i = 0; i < _count; i++) {
             _observations.delMin();

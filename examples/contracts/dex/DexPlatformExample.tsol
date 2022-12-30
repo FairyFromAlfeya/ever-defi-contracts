@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.63.0;
+pragma ever-solidity >= 0.61.2;
 
 pragma AbiHeader time;
 pragma AbiHeader expire;
@@ -7,17 +7,31 @@ pragma AbiHeader pubkey;
 import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
 import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
 import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/TargetBalance.tsol";
 import "@broxus/ever-contracts/contracts/validation/abstract/Validatable.tsol";
 
 import "../../../contracts/dex/libraries/DexPlatformTypes.tsol";
 import "../../../contracts/dex/DexPlatformMinimized.tsol";
 
-contract DexPlatformExample is Reservable, Validatable {
+contract DexPlatformExample is
+    Reservable,
+    Validatable,
+    TargetBalance
+{
     uint32 private static _nonce;
+
+    function _getTargetBalanceInternal()
+        internal
+        view
+        override
+        returns (uint128)
+    {
+        return UtilityGas.INITIAL_BALANCE;
+    }
 
     constructor(optional(address) _remainingGasTo)
         public
-        reserveAcceptAndRefund(UtilityGas.INITIAL_BALANCE, _remainingGasTo, msg.sender)
+        reserveAcceptAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
     {}
 
     function getPairAddress(
