@@ -1088,22 +1088,22 @@ everscale-crypto@^0.1.1:
   resolved "https://registry.yarnpkg.com/everscale-crypto/-/everscale-crypto-0.1.1.tgz#7e354f122b2673036d40cd6aebf44630b0392f34"
   integrity sha512-DoocTqkz1cayTu4UDdP7dUEcDMfCqchNNKhIgsXQAqhlwRExsNQ1Omo2C/JiuQ3rMzr3XxvqrCwLeLTiOrbXYQ==
 
-everscale-inpage-provider@^0.3.45, everscale-inpage-provider@^0.3.47:
-  version "0.3.47"
-  resolved "https://registry.yarnpkg.com/everscale-inpage-provider/-/everscale-inpage-provider-0.3.47.tgz#948a92db6778338aa96884a0e04a5982638b716e"
-  integrity sha512-58AbzjFD1dCTroH5H8QiCRt0qqtgBFNlKXcm0leog8NrSmCr8pVoiWuF70hUsgtAry1prhd6OLmADdLsCpdNaw==
+everscale-inpage-provider@^0.3.45:
+  version "0.3.46"
+  resolved "https://registry.yarnpkg.com/everscale-inpage-provider/-/everscale-inpage-provider-0.3.46.tgz#738f3f849b8ee80f3587b1234cb596c38779bc37"
+  integrity sha512-7+7Jm2lsLxOMc8wrp1EQ4QM+a193mTJoz9ZgYRze+8fbPfGyWK0ozYeLJEc0jNl3jeGeSQy2m5Gw140BoS70xw==
 
 everscale-standalone-client@^2.1.5:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/everscale-standalone-client/-/everscale-standalone-client-2.1.8.tgz#e47fa5685c8b91b7e533565b0ba9b7c5a06d3cbc"
-  integrity sha512-NIH9EM1riNSx574cIXAiisvM1RphGnBIJ9LGmGqqcUE8IHZtVdcKGLmVYojtcQcw3UqWL6OXvf6fwCUEQ67voQ==
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/everscale-standalone-client/-/everscale-standalone-client-2.1.5.tgz#070012e2385a894e334f9682e7bf365837f56166"
+  integrity sha512-dp5pCABzJsW+ZSfBUlSr3f8xRjYBOCxM8t7YaiA7dhMsC1rfmDRVoT5mgnOeyJPLq9k21XgZvLOJAF97PhmnRA==
   dependencies:
     "@broxus/await-semaphore" "^0.1.5"
     bignumber.js "^9.1.0"
     events "^3.3.0"
-    everscale-inpage-provider "^0.3.47"
+    everscale-inpage-provider "^0.3.45"
     fast-safe-stringify "^2.1.1"
-    nekoton-wasm "^1.0.11"
+    nekoton-wasm "^1.0.5"
     node-fetch "^2.6.7"
 
 execa@^5.0.0:
@@ -1870,10 +1870,10 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==
 
-nekoton-wasm@^1.0.11:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/nekoton-wasm/-/nekoton-wasm-1.0.12.tgz#593eaf70fd755431fd55c985b49ecd5a97f4a839"
-  integrity sha512-bp5AgVH7JZ24/kojP6BMfShVj5nPoV7s6t+zJKt+6ZkpQ5PaKoTySFNli752KJabk3IImfgRz7nslFD8mQCyYQ==
+nekoton-wasm@^1.0.5:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/nekoton-wasm/-/nekoton-wasm-1.0.9.tgz#af807674b5326c589b95a79703ba38a1288bab04"
+  integrity sha512-OIr6p080TjYYfnW6YOca8dHuX96DoC/oyftE+3IpW8GMN0aEEAQ5xLm5t8Vz4ntJpthU6JcboR7dqFUroPT4Kw==
 
 no-case@^2.2.0:
   version "2.3.2"
