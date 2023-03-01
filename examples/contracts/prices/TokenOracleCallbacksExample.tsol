@@ -1,0 +1,114 @@
+pragma ever-solidity >= 0.61.2;
+
+pragma AbiHeader time;
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import "locklift/src/console.tsol";
+
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/TargetBalance.tsol";
+
+import "../../../contracts/prices/chainlink/interfaces/IOnPriceReceived.tsol";
+import "../../../contracts/prices/chainlink/interfaces/IOnPriceRejected.tsol";
+import "../../../contracts/prices/chainlink/interfaces/ITokenOracle.tsol";
+import "../../../contracts/prices/chainlink/structures/IEthereumEventData.tsol";
+
+contract TokenOracleCallbacksExample is
+    IOnPriceReceived,
+    IOnPriceRejected,
+    Reservable,
+    TargetBalance
+{
+    uint32 private static _nonce;
+    ITokenOracle private static _oracle;
+
+    function _getTargetBalanceInternal()
+        internal
+        view
+        override
+        returns (uint128)
+    {
+        return UtilityGas.INITIAL_BALANCE;
+    }
+
+    constructor(optional(address) _remainingGasTo)
+        public
+        reserveAcceptAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
+    {}
+
+    function onPriceReceived(
+        address _baseTokenRoot,
+        address _quoteTokenRoot,
+        uint256 _price,
+        uint32 _updatedAt,
+        uint256 _roundId,
+        address _callbackRequester,
+        int16 _scale,
+        TvmCell _payload
+    )
+        external
+        override
+        reserveAndRefund(
+            _getTargetBalanceInternal(),
+            abi.decode(_payload, address),
+            abi.decode(_payload, address)
+        )
+    {
+        console.log(format("Base token root: {}", _baseTokenRoot));
+        console.log(format("Quote token root: {}", _quoteTokenRoot));
+        console.log(format("Price: {}", _price));
+        console.log(format("Scale: {}", _scale));
+        console.log(format("Updated at: {}", _updatedAt));
+        console.log(format("Round ID: {}", _roundId));
+        console.log(format("Requester: {}", _callbackRequester));
+    }
+
+    function onPriceRejected(
+        address _baseTokenRoot,
+        address _quoteTokenRoot,
+        address _callbackRequester,
+        TvmCell _payload
+    )
+        external
+        override
+        reserveAndRefund(
+            _getTargetBalanceInternal(),
+            abi.decode(_payload, address),
+            abi.decode(_payload, address)
+        )
+    {
+        console.log(format("Base token root: {}", _baseTokenRoot));
+        console.log(format("Quote token root: {}", _quoteTokenRoot));
+        console.log(format("Requester: {}", _callbackRequester));
+    }
+
+    function makeRequest(
+        address _tokenA,
+        address _tokenB,
+        IEthereumEventData.EthereumEventData _eventData,
+        optional(address) _remainingGasTo
+    )
+        external
+        view
+        reserve(_getTargetBalanceInternal())
+    {
+        address remainingGasTo = _remainingGasTo.hasValue() ? _remainingGasTo.get() : msg.sender;
+
+        _oracle
+            .makeRequest{
+                value: 0,
+                flag: MsgFlag.ALL_NOT_RESERVED,
+                bounce: false
+            }(
+                _eventData,
+                abi.encode(remainingGasTo),
+                _tokenA,
+                _tokenB,
+                address(this),
+                remainingGasTo
+            );
+    }
+}

@@ -1,0 +1,24 @@
+pragma ever-solidity >= 0.61.2;
+
+/// @title OnPriceReceived-callback Interface
+/// @notice Interface for onPriceReceived-callback implementation
+interface IOnPriceReceived {
+    /// @notice Handle callback of success makeRequest call
+    /// @param _baseTokenRoot Base token of chainlink price feed
+    /// @param _quoteTokenRoot Quote token of chainlink price feed
+    /// @param _price FP128-price in minimum units
+    /// @param _updatedAt When the price was updated
+    /// @param _roundId ID of the round
+    /// @param _callbackRequester Who requested price
+    /// @param _payload Any extra data from the previous call
+    function onPriceReceived(
+        address _baseTokenRoot,
+        address _quoteTokenRoot,
+        uint256 _price,
+        uint32 _updatedAt,
+        uint256 _roundId,
+        address _callbackRequester,
+        int16 _scale,
+        TvmCell _payload
+    ) external;
+}

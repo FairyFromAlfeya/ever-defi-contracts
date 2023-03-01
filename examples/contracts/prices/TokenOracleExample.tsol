@@ -1,0 +1,109 @@
+pragma ever-solidity >= 0.61.2;
+
+pragma AbiHeader time;
+pragma AbiHeader expire;
+pragma AbiHeader pubkey;
+
+import "@broxus/ever-contracts/contracts/libraries/MsgFlag.tsol";
+import "@broxus/ever-contracts/contracts/libraries/UtilityGas.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/Reservable.tsol";
+import "@broxus/ever-contracts/contracts/reservation/abstract/TargetBalance.tsol";
+
+import "../../../contracts/prices/chainlink/interfaces/ITokenOracle.tsol";
+import "../../../contracts/prices/chainlink/interfaces/IOnPriceReceived.tsol";
+import "../../../contracts/prices/chainlink/interfaces/IOnPriceRejected.tsol";
+
+contract TokenOracleExample is
+    ITokenOracle,
+    Reservable,
+    TargetBalance
+{
+    uint32 private static _nonce;
+
+    struct Note {
+        uint price;
+        uint32 updatedAt;
+        int16 scale;
+    }
+
+    mapping(address => mapping(address => Note)) private _notes;
+
+    function _getTargetBalanceInternal()
+        internal
+        view
+        override
+        returns (uint128)
+    {
+        return UtilityGas.INITIAL_BALANCE;
+    }
+
+    constructor(optional(address) _remainingGasTo)
+        public
+        reserveAcceptAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
+    {}
+
+    function setPriceAndScale(
+        address _tokenA,
+        address _tokenB,
+        uint _price,
+        int16 _scale,
+        optional(address) _remainingGasTo
+    )
+        external
+        reserveAndRefund(_getTargetBalanceInternal(), _remainingGasTo, msg.sender)
+    {
+        _notes[_tokenA][_tokenB] = Note({
+            price: _price,
+            scale: _scale,
+            updatedAt: now
+        });
+    }
+
+    function makeRequest(
+        EthereumEventData,
+        TvmCell _payload,
+        address _tokenA,
+        address _tokenB,
+        address _callbackTo,
+        address
+    )
+        external
+        view
+        override
+        reserve(_getTargetBalanceInternal())
+    {
+        optional(mapping(address => Note)) notesOpt = _notes.fetch(_tokenA);
+
+        if (notesOpt.hasValue()) {
+            mapping(address => Note) notes = notesOpt.get();
+
+            IOnPriceReceived(_callbackTo)
+                .onPriceReceived{
+                    value: 0,
+                    flag: MsgFlag.ALL_NOT_RESERVED,
+                    bounce: false
+                }(
+                    _tokenA,
+                    _tokenB,
+                    notes[_tokenB].price,
+                    notes[_tokenB].updatedAt,
+                    0,
+                    msg.sender,
+                    notes[_tokenB].scale,
+                    _payload
+                );
+        } else {
+            IOnPriceRejected(_callbackTo)
+                .onPriceRejected{
+                    value: 0,
+                    flag: MsgFlag.ALL_NOT_RESERVED,
+                    bounce: false
+                }(
+                    _tokenA,
+                    _tokenB,
+                    msg.sender,
+                    _payload
+                );
+        }
+    }
+}

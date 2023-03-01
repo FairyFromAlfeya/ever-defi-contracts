@@ -1,0 +1,61 @@
+{
+	"ABI version": 2,
+	"version": "2.2",
+	"header": ["pubkey", "time", "expire"],
+	"functions": [
+		{
+			"name": "constructor",
+			"inputs": [
+				{"name":"_remainingGasTo","type":"optional(address)"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "setPriceAndScale",
+			"inputs": [
+				{"name":"_tokenA","type":"address"},
+				{"name":"_tokenB","type":"address"},
+				{"name":"_price","type":"uint256"},
+				{"name":"_scale","type":"int16"},
+				{"name":"_remainingGasTo","type":"optional(address)"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "makeRequest",
+			"inputs": [
+				{"components":[{"name":"eventTransaction","type":"uint256"},{"name":"eventIndex","type":"uint32"},{"name":"eventData","type":"cell"},{"name":"eventBlockNumber","type":"uint32"},{"name":"eventBlock","type":"uint256"}],"name":"value0","type":"tuple"},
+				{"name":"_payload","type":"cell"},
+				{"name":"_tokenA","type":"address"},
+				{"name":"_tokenB","type":"address"},
+				{"name":"_callbackTo","type":"address"},
+				{"name":"value5","type":"address"}
+			],
+			"outputs": [
+			]
+		},
+		{
+			"name": "getTargetBalance",
+			"inputs": [
+				{"name":"answerId","type":"uint32"}
+			],
+			"outputs": [
+				{"name":"value0","type":"uint128"}
+			]
+		}
+	],
+	"data": [
+		{"key":1,"name":"_nonce","type":"uint32"}
+	],
+	"events": [
+	],
+	"fields": [
+		{"name":"_pubkey","type":"uint256"},
+		{"name":"_timestamp","type":"uint64"},
+		{"name":"_constructorFlag","type":"bool"},
+		{"name":"_nonce","type":"uint32"},
+		{"components":[{"name":"price","type":"uint256"},{"name":"updatedAt","type":"uint32"},{"name":"scale","type":"int16"}],"name":"_notes","type":"map(address,map(address,tuple))"}
+	]
+}

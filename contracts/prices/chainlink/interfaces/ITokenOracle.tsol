@@ -1,0 +1,23 @@
+pragma ever-solidity >= 0.61.2;
+
+import "../structures/IEthereumEventData.tsol";
+
+/// @title Token Oracle Interface
+/// @notice Interface for interaction with chainlink token oracle
+interface ITokenOracle is IEthereumEventData {
+    /// @notice Get a callback with the verified price for the given pair of tokens
+    /// @param _eventData Chainlink AnswerUpdated event from other EVM network
+    /// @param _payload Any extra data to return in callback
+    /// @param _tokenA The first token of the pair
+    /// @param _tokenB The second token of the pair
+    /// @param _callbackTo Recipient of the callback
+    /// @param _remainingGasTo Recipient of the remaining gas
+    function makeRequest(
+        EthereumEventData _eventData,
+        TvmCell _payload,
+        address _tokenA,
+        address _tokenB,
+        address _callbackTo,
+        address _remainingGasTo
+    ) external view;
+}

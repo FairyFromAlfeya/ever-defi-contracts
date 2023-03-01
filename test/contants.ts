@@ -47,3 +47,19 @@ export const OracleObservations: Observation[] = [
       '124013286035894448383650817062728663999704191399183609',
   },
 ];
+
+type EthereumEventData = {
+  eventTransaction: string;
+  eventIndex: string;
+  eventData: string;
+  eventBlockNumber: string;
+  eventBlock: string;
+};
+
+export const EmptyEthereumEventData: EthereumEventData = {
+  eventTransaction: '0',
+  eventData: EmptyTvmCell,
+  eventIndex: '0',
+  eventBlockNumber: '0',
+  eventBlock: '0',
+};
