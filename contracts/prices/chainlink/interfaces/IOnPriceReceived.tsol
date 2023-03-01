@@ -9,6 +9,9 @@ interface IOnPriceReceived {
     /// @param _price FP128-price in minimum units
     /// @param _updatedAt When the price was updated
     /// @param _roundId ID of the round
+    /// @param _scale Scale to convert price from minimum to base units.
+    ///               _price: 1 satoshi = 200 µUSDT
+    ///               Price in base units: 1 BTC = _price * 10 ^ scale = 20000 USDT
     /// @param _callbackRequester Who requested price
     /// @param _payload Any extra data from the previous call
     function onPriceReceived(
@@ -17,8 +20,8 @@ interface IOnPriceReceived {
         uint256 _price,
         uint32 _updatedAt,
         uint256 _roundId,
-        address _callbackRequester,
         int16 _scale,
+        address _callbackRequester,
         TvmCell _payload
     ) external;
 }

@@ -30,8 +30,8 @@
 				{"name":"_payload","type":"cell"},
 				{"name":"_tokenA","type":"address"},
 				{"name":"_tokenB","type":"address"},
-				{"name":"_callbackTo","type":"address"},
-				{"name":"value5","type":"address"}
+				{"name":"value4","type":"address"},
+				{"name":"_callbackTo","type":"address"}
 			],
 			"outputs": [
 			]

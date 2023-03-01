@@ -19,8 +19,8 @@
 				{"name":"_price","type":"uint256"},
 				{"name":"_updatedAt","type":"uint32"},
 				{"name":"_roundId","type":"uint256"},
-				{"name":"_callbackRequester","type":"address"},
 				{"name":"_scale","type":"int16"},
+				{"name":"_callbackRequester","type":"address"},
 				{"name":"_payload","type":"cell"}
 			],
 			"outputs": [

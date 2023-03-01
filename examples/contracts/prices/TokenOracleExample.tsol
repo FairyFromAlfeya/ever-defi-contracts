@@ -64,8 +64,8 @@ contract TokenOracleExample is
         TvmCell _payload,
         address _tokenA,
         address _tokenB,
-        address _callbackTo,
-        address
+        address,
+        address _callbackTo
     )
         external
         view
@@ -88,8 +88,8 @@ contract TokenOracleExample is
                     notes[_tokenB].price,
                     notes[_tokenB].updatedAt,
                     0,
-                    msg.sender,
                     notes[_tokenB].scale,
+                    msg.sender,
                     _payload
                 );
         } else {

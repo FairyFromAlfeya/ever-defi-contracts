@@ -130,20 +130,20 @@ LDREF
 ENDS
 CTOS
 LDU 256
-LDMSGADDR
 LDI 16
+LDMSGADDR
 LDREF
 ENDS
 .loc ../examples/contracts/prices/TokenOracleCallbacksExample.tsol, 0
 CALLREF {
-	CALL $onPriceReceived_23fb1bf9_internal_macro$
+	CALL $onPriceReceived_0101d513_internal_macro$
 }
 CALLREF {
 	CALL $c7_to_c4$
 }
 THROW 0
 
-.macro onPriceReceived_23fb1bf9_internal_macro
+.macro onPriceReceived_0101d513_internal_macro
 .loc ../examples/contracts/prices/TokenOracleCallbacksExample.tsol, 42
 CALLREF {
 	CALL $_getTargetBalanceInternal_141d6ea7_internal_macro$
@@ -254,11 +254,11 @@ PUSHSLICE x5363616c653a20
 CALLREF {
 	CALL $storeStringInBuilders_macro$
 }
-PUSH S2
+PUSH S3
 ABS
 PUSHINT 0
 DUP
-ROLL 5
+ROLL 6
 ISNEG
 CALLREF {
 	CALL $convertIntToDecStr_macro$
@@ -589,8 +589,8 @@ PUSHCONT {
 }
 IFELSE
 .loc ../examples/contracts/prices/TokenOracleCallbacksExample.tsol, 100
-DUP
 MYADDR
+OVER
 BLKSWAP 2, 5
 SWAP
 ROLL 4
@@ -966,16 +966,16 @@ IFJMPREF {
 		CALL $makeRequest$
 	}
 	DUP
+	PUSHINT 887403634
+	EQUAL
+	IFJMPREF {
+		CALL $onPriceReceived$
+	}
+	DUP
 	PUSHINT 1333141799
 	EQUAL
 	IFJMPREF {
 		CALL $onPriceRejected$
-	}
-	DUP
-	PUSHINT 1429610498
-	EQUAL
-	IFJMPREF {
-		CALL $onPriceReceived$
 	}
 	DUP
 	PUSHINT 1772174412

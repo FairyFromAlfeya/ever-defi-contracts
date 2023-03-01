@@ -45,8 +45,8 @@ contract TokenOracleCallbacksExample is
         uint256 _price,
         uint32 _updatedAt,
         uint256 _roundId,
-        address _callbackRequester,
         int16 _scale,
+        address _callbackRequester,
         TvmCell _payload
     )
         external
@@ -107,8 +107,8 @@ contract TokenOracleCallbacksExample is
                 abi.encode(remainingGasTo),
                 _tokenA,
                 _tokenB,
-                address(this),
-                remainingGasTo
+                remainingGasTo,
+                address(this)
             );
     }
 }
