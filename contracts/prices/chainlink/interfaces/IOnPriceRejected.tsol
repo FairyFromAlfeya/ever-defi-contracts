@@ -1,0 +1,17 @@
+pragma ever-solidity >= 0.61.2;
+
+/// @title OnPriceRejected-callback Interface
+/// @notice Interface for onPriceRejected-callback implementation
+interface IOnPriceRejected {
+    /// @notice Handle callback of rejected makeRequest call
+    /// @param _baseTokenRoot Base token of chainlink price feed
+    /// @param _quoteTokenRoot Quote token of chainlink price feed
+    /// @param _callbackRequester Who requested price
+    /// @param _payload Any extra data from the previous call
+    function onPriceRejected(
+        address _baseTokenRoot,
+        address _quoteTokenRoot,
+        address _callbackRequester,
+        TvmCell _payload
+    ) external;
+}

@@ -1,0 +1,23 @@
+pragma ever-solidity >= 0.61.2;
+
+/// @title Ethereum Event Data Interface
+/// @notice Structure for packed event data from EVM network
+interface IEthereumEventData {
+    /// @dev Packed EVM event data that needs to be verified by relay
+    struct EthereumEventData {
+        /// @dev Hash of the transaction which contains this event
+        uint256 eventTransaction;
+
+        /// @dev Event index in transaction
+        uint32 eventIndex;
+
+        /// @dev Encoded event data
+        TvmCell eventData;
+
+        /// @dev Number of the block which contains transaction with this event
+        uint32 eventBlockNumber;
+
+        /// @dev Hash of the block which contains transaction with this event
+        uint256 eventBlock;
+    }
+}
